@@ -19,14 +19,13 @@ import (
 	"github.com/usa4ev/gotracer/internal/tracer"
 )
 
-var (
-	// command-line options:
-	httpServerEndpoint = flag.String("http-server-endpoint", ":8080", "HTTP server endpoint")
-	mongouri = flag.String("mongobd_uri", "mongodb://localhost:27017", "Mongo db URI")
-	resourcePath = flag.String("resource_path", "./config/resources", "Path to url list")
-)
-
 func main(){
+	// command-line options:
+	httpServerEndpoint := flag.String("http-server-endpoint", ":8080", "HTTP server endpoint")
+	mongouri := flag.String("mongobd-uri", "mongodb://mongo:27017", "Mongo db URI")
+	resourcePath := flag.String("resource-path", "./config/resources", "Path to url list")
+
+	flag.Parse()
 
 	// Read url list from file 
 	resources,err := resources.ReadResources(*resourcePath)
