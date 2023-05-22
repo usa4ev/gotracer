@@ -10,8 +10,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/usa4ev/gotracer/internal/resources"
 	"golang.org/x/sync/singleflight"
+
+	"github.com/usa4ev/gotracer/internal/resources"
 )
 
 type (
@@ -68,13 +69,13 @@ func (t *tracer) TrackSlowest() (resources.Resource, time.Duration, error) {
 
 	sortTracks(res)
 
-	for i := len(t.resources)-1; i >= 0; i--{
-		if res[i].err == nil{
+	for i := len(t.resources) - 1; i >= 0; i-- {
+		if res[i].err == nil {
 
 			return t.resources[res[i].idx], res[i].Duration, nil
 		}
 	}
-	
+
 	return "", 0, fmt.Errorf("no resource is available")
 }
 
@@ -83,13 +84,13 @@ func (t *tracer) TrackFastest() (resources.Resource, time.Duration, error) {
 
 	sortTracks(res)
 
-	for i := 0; i < len(t.resources); i++{
-		if res[i].err == nil{
+	for i := 0; i < len(t.resources); i++ {
+		if res[i].err == nil {
 
 			return t.resources[res[i].idx], res[i].Duration, nil
 		}
 	}
-	
+
 	return "", 0, fmt.Errorf("no resource is available")
 }
 
@@ -112,10 +113,10 @@ func (t *tracer) trackOne(resource resources.Resource) (d time.Duration, err err
 	defer cancel()
 
 	var url string
-	if strings.HasPrefix("http://", string(resource)) || 
-			strings.HasPrefix("https://", string(resource)){
+	if strings.HasPrefix("http://", string(resource)) ||
+		strings.HasPrefix("https://", string(resource)) {
 		url = string(resource)
-	}else{
+	} else {
 		url = fmt.Sprintf("https://%s", resource)
 	}
 

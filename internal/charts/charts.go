@@ -6,6 +6,7 @@ import (
 	"github.com/go-echarts/go-echarts/v2/charts"
 	"github.com/go-echarts/go-echarts/v2/components"
 	"github.com/go-echarts/go-echarts/v2/opts"
+
 	"github.com/usa4ev/gotracer/internal/model"
 )
 
@@ -51,7 +52,7 @@ func barBasic(data map[string][]model.Entry, title opts.Title) *charts.Bar {
 func makeBarItems(items []model.Entry) []opts.BarData {
 	res := make([]opts.BarData, itemCnt)
 
-	for _,item := range items{
+	for _, item := range items {
 		res[item.Time.Hour()].Value = item.Count
 	}
 

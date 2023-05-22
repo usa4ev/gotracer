@@ -10,6 +10,7 @@ import (
 	"syscall"
 
 	"github.com/sirupsen/logrus"
+	
 	"github.com/usa4ev/gotracer/internal/mongo/connector"
 	"github.com/usa4ev/gotracer/internal/mongo/mongohook"
 	"github.com/usa4ev/gotracer/internal/mongo/provider"
@@ -22,7 +23,7 @@ var (
 	// command-line options:
 	httpServerEndpoint = flag.String("http-server-endpoint", ":8080", "HTTP server endpoint")
 	mongouri = flag.String("mongobd_uri", "mongodb://localhost:27017", "Mongo db URI")
-	resourcePath = flag.String("resource_path", "/home/usachev/vsc_repos/gotracer/config/resources", "Path to url list")
+	resourcePath = flag.String("resource_path", "./config/resources", "Path to url list")
 )
 
 func main(){
