@@ -14,7 +14,7 @@ func New(uri string ) (*mongo.Client, error) {
 	defer cancel()
 	
 	client, err := mongo.Connect(ctx,
-		options.Client().ApplyURI("mongodb://localhost:27017"))
+		options.Client().ApplyURI(uri))
 
 	if err != nil {
 		return nil, fmt.Errorf("failed to connect to mongodb: %v", err)

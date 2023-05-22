@@ -12,11 +12,11 @@ EXPOSE 8080
 WORKDIR /gotracer 
 RUN git clone https://github.com/usa4ev/gotracer ./\
     # Build server
-    && make build-srv-linux && chmod +x ./bin/ParserServer-linux\
+    && make build-srv-linux && chmod +x ./bin/tracerServer-linux\
     # Cleanup
     && apk del git && apk del make
  
-CMD ["./bin/tracerServer"] 
+CMD ["./bin/tracerServer-linux"] 
 
 
 
