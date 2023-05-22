@@ -5,6 +5,7 @@ hotracer is a sample service that can check time to first byte on different web-
 
 `make run-srv-linux`
 
+or use `docker compose`
 
 ### Resources
 
