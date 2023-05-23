@@ -1,10 +1,11 @@
 ### About
-hotracer is a sample service that can check time to first byte on different web-resources. 
+Gotracer is a sample service that can check time to first byte on different web-resources. 
 
 ### How to run
 
 `make run-srv-linux`
 
+or use `docker compose`
 
 ### Resources
 
